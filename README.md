@@ -1,6 +1,6 @@
 # Fantasy NBA Player Draft Optimizer & Analysis
 
-An end-to-end analysis combining **Yahoo Fantasy Basketball API** and **NBA API** data to evaluate player value vs. market perception — helping fantasy managers make smarter draft, waiver, and trade decisions.
+A Carnegie Mellon University course project combining **Yahoo Fantasy Basketball API** and **NBA API** data to evaluate player value vs. market perception — helping fantasy managers make smarter draft, waiver, and trade decisions.
 
 ## Overview
 
@@ -20,8 +20,8 @@ Fantasy basketball success depends on identifying players whose real performance
 - **NBA API** — real on-court stats (PTS, REB, AST, STL, BLK, 3PTM)
 
 ### Feature Engineering
-- **PERF_SCORE** — composite metric measuring true on-court fantasy value
-- **UNDER_SCORE** — gap between PERF_SCORE and ownership %, identifying undervalued players
+- **PERF_SCORE** — weighted sum of points, rebounds, assists, steals, blocks, and NBA fantasy points
+- **UNDER_SCORE** — `PERF_SCORE / (% Owned + 1e-6)`. At equal production, lower ownership gives a higher score. A player with zero ownership can rank very high because the denominator is only `1e-6`.
 
 ### Analysis
 - EDA on ownership patterns and draft behavior
